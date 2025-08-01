@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: t_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+  - name: t_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null          
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('t_customers')
+              field: customer_id
+      - name: status
+        tests:
+        - accepted_values:
+            values: ['returned','completed','return_pending','shipped','placed']
+           

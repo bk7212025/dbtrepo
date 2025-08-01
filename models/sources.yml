@@ -1,0 +1,8 @@
+sources:
+  - name: s1
+    database: marketing_db
+    schema: marketing_schema
+    tables:
+      - name: orders
+      - name: customers      
+
